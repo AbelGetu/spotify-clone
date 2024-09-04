@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/domain/entities/auth/song/song.dart';
@@ -46,19 +45,15 @@ class NewsSongs extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(AppUrls.firestorage +
-                                songs[index].artist +
-                                ' - ' +
-                                songs[index].title +
-                                '.jpg' +
-                                AppUrls.mediaAlt))),
+                            image: NetworkImage(
+                                '${AppUrls.firestorage}${songs[index].artist} - ${songs[index].title}.jpg${AppUrls.mediaAlt}'))),
                   ),
                 )
               ],
             ),
           );
         },
-        separatorBuilder: (context, index) => SizedBox(
+        separatorBuilder: (context, index) => const SizedBox(
               width: 14,
             ),
         itemCount: songs.length);
